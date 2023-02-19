@@ -6,10 +6,11 @@
   "module": "dist/bundle.mjs",
   "type": "module",
   "scripts": {
+    "init": "npm run prepack && git add . && git commit -a -m merge && git push",
     "build:cjs": "rollup debug-bootloader.mjs --file ./dist/bundle.cjs --f cjs",
     "build:es": "rollup debug-bootloader.mjs --file ./dist/bundle.mjs --f es",
     "prepack": "npm run build:cjs && npm run build:es",
-    "publish": "npm run prepack && git add . && git commit -a -m merge && git push && release-it minor"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
