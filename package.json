@@ -1,0 +1,46 @@
+{
+  "name": "debug-bootloader",
+  "version": "1.0.0",
+  "description": "This is a simple bootloader that can be used to debug the boot process of a node application.\r Converts console.info to traces to track the file and line number information without modifying the source code.",
+  "main": "dist/bundle.cjs",
+  "module": "dist/bundle.mjs",
+  "type": "module",
+  "scripts": {
+    "build:cjs": "rollup debug-bootloader.mjs --file ./dist/bundle.cjs --f cjs",
+    "build:es": "rollup debug-bootloader.mjs --file ./dist/bundle.mjs --f es",
+    "prepack": "npm run build:cjs && npm run build:es",
+    "test": "./test/test.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichaelBakker1986/debug-bootloader.git"
+  },
+  "release": {
+    "branches": [
+      "master"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist/*"
+  ],
+  "exports": {
+    "default": {
+      "import": {
+        "default": "./dist/bundle.mjs"
+      },
+      "require": {
+        "default": "./dist/bundle.cjs"
+      }
+    }
+  },
+  "keywords": [],
+  "author": "Michael Bakker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MichaelBakker1986/debug-bootloader/issues"
+  },
+  "homepage": "https://github.com/MichaelBakker1986/debug-bootloader#readme"
+}
