@@ -9,7 +9,7 @@
     "build:cjs": "rollup debug-bootloader.mjs --file ./dist/bundle.cjs --f cjs",
     "build:es": "rollup debug-bootloader.mjs --file ./dist/bundle.mjs --f es",
     "prepack": "npm run build:cjs && npm run build:es",
-    "test": "./test/test.mjs"
+    "publish": "npm run prepack && git add . && git commit -a -m merge && git push && release-it minor"
   },
   "repository": {
     "type": "git",
@@ -42,5 +42,8 @@
   "bugs": {
     "url": "https://github.com/MichaelBakker1986/debug-bootloader/issues"
   },
-  "homepage": "https://github.com/MichaelBakker1986/debug-bootloader#readme"
+  "homepage": "https://github.com/MichaelBakker1986/debug-bootloader#readme",
+  "dependencies": {
+    "consola": "^2.15.3"
+  }
 }
